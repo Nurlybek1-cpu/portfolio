@@ -1,0 +1,118 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background-color: rgb(240 240 240);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  margin-bottom: var(--space-6);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981; /* Emerald green */
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+.statusText {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+  /* A subtle visual touch: slight letter spacing on a large bold font */
+  letter-spacing: -0.03em; 
+}
+
+.description {
+  font-size: var(--text-xl);
+  max-width: 580px;
+  margin-bottom: var(--space-8);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap; /* Ensures buttons stack on very small screens */
+}
+
+.primaryCta, .secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
+}
+
+.primaryCta {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  border: 1px solid var(--color-fg);
+}
+
+.primaryCta:hover {
+  background-color: var(--color-text-muted);
+  border-color: var(--color-text-muted);
+  /* Using the token accent could also work, but black-to-gray is very premium */
+}
+
+.secondaryCta {
+  background-color: transparent;
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+}
+
+.secondaryCta:hover {
+  background-color: rgb(240 240 240);
+  border-color: rgb(210 210 210);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .title {
+    font-size: var(--text-3xl);
+  }
+  
+  .description {
+    font-size: var(--text-lg);
+  }
+  
+  .primaryCta, .secondaryCta {
+    width: 100%; /* Full width buttons for easy tapping on mobile */
+  }
+}
