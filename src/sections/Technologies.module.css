@@ -1,0 +1,126 @@
+.technologies {
+  padding: var(--space-16) var(--space-4);
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 2.5fr;
+    gap: var(--space-12);
+  }
+}
+
+.titleColumn {
+  position: relative;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  color: var(--color-fg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 600px) {
+  .title {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.intro {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.categoryTitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.techList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+}
+
+.techItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-fg);
+  cursor: default;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  user-select: none;
+}
+
+.techItem:hover {
+  border-color: var(--color-fg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-text-muted);
+  opacity: 0.45;
+  transition: background-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.techItem:hover .dot {
+  background-color: var(--color-accent);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.techName {
+  letter-spacing: -0.01em;
+}

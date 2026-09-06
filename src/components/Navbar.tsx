@@ -38,6 +38,7 @@ export default function Navbar() {
           <ul className={styles.navList}>
             <li><a href="#about" onClick={closeMenu} className={styles.navLink}>About</a></li>
             <li><a href="#projects" onClick={closeMenu} className={styles.navLink}>Projects</a></li>
+            <li><a href="#technologies" onClick={closeMenu} className={styles.navLink}>Technologies</a></li>
             <li><a href="#now" onClick={closeMenu} className={styles.navLink}>Now</a></li>
             <li><a href="#contact" onClick={closeMenu} className={styles.navLink}>Contact</a></li>
           </ul>
