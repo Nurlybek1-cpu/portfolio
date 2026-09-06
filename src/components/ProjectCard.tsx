@@ -1,5 +1,5 @@
 import styles from './ProjectCard.module.css';
-import { Project } from '../data/projects';
+import type { Project } from '../data/projects';
 
 interface ProjectCardProps {
   project: Project;
