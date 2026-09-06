@@ -1,0 +1,62 @@
+.about {
+  padding: var(--space-16) var(--space-4);
+  background-color: var(--color-bg);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+/* Two-column layout on larger screens */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr 2.5fr;
+    gap: var(--space-12);
+  }
+}
+
+.titleColumn {
+  position: relative;
+}
+
+.title {
+  font-size: var(--text-2xl);
+  color: var(--color-fg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* On desktop, the title sticks to the top as you scroll past the text */
+@media (min-width: 600px) {
+  .title {
+    position: sticky;
+    top: 100px; /* Offset to sit below the sticky navbar */
+  }
+}
+
+.lead {
+  font-size: var(--text-xl);
+  color: var(--color-fg);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: var(--space-8);
+  letter-spacing: -0.01em;
+}
+
+.prose p {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
