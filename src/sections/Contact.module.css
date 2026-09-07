@@ -89,11 +89,44 @@
   color: var(--color-fg);
   text-decoration: none;
   word-break: break-all;
+  position: relative;
+  display: inline-block;
   transition: color var(--transition-fast);
 }
 
-.emailLink:hover {
+.emailLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-fast);
+}
+
+.emailLink:focus-visible {
   color: var(--color-accent);
+}
+
+.emailLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.emailLink:active {
+  opacity: 0.7;
+}
+
+@media (hover: hover) {
+  .emailLink:hover {
+    color: var(--color-accent);
+  }
+
+  .emailLink:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .emailActions {
@@ -115,17 +148,18 @@
   background-color: var(--color-bg);
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   text-decoration: none;
 }
 
-.actionBtn:hover {
+.actionBtn:focus-visible {
   border-color: var(--color-fg);
   color: var(--color-fg);
 }
 
 .actionBtn:active {
-  transform: translateY(0);
+  transform: none;
+  box-shadow: none;
   opacity: 0.8;
 }
 
@@ -134,20 +168,64 @@
   color: #16a34a;
 }
 
+.copiedBtn:focus-visible {
+  color: #16a34a;
+  border-color: #16a34a;
+}
+
 .primaryBtn {
   background-color: var(--color-fg);
   color: var(--color-bg);
   border-color: var(--color-fg);
 }
 
-.primaryBtn:hover {
+.primaryBtn svg {
+  transition: transform var(--transition-fast);
+}
+
+.primaryBtn:hover,
+.primaryBtn:focus-visible {
+  color: var(--color-bg);
+}
+
+.primaryBtn:focus-visible {
   background-color: #333333;
   border-color: #333333;
-  color: var(--color-bg);
 }
 
 .primaryBtn:active {
   background-color: #444444;
+  border-color: #444444;
+  color: var(--color-bg);
+}
+
+@media (hover: hover) {
+  .actionBtn:hover {
+    border-color: var(--color-fg);
+    color: var(--color-fg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .copiedBtn:hover {
+    border-color: #16a34a;
+    color: #16a34a;
+  }
+
+  .primaryBtn:hover {
+    background-color: #333333;
+    border-color: #333333;
+    color: var(--color-bg);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .actionBtn:hover {
+    transform: var(--lift-sm);
+  }
+
+  .primaryBtn:hover svg {
+    transform: translate(1px, -1px);
+  }
 }
 
 /* ── Social Links ── */
@@ -169,15 +247,19 @@
   transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.socialLink:hover {
+.socialLink:focus-visible {
+  color: var(--color-fg);
   border-color: var(--color-fg);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-hover);
+}
+
+.socialLink:focus-visible .socialIconWrapper,
+.socialLink:focus-visible .arrowIcon {
   color: var(--color-fg);
 }
 
 .socialLink:active {
-  transform: translateY(0);
+  transform: none;
   box-shadow: none;
 }
 
@@ -192,10 +274,6 @@
   color: var(--color-text-muted);
   flex-shrink: 0;
   transition: color var(--transition-fast);
-}
-
-.socialLink:hover .socialIconWrapper {
-  color: var(--color-fg);
 }
 
 .socialText {
@@ -224,7 +302,28 @@
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.socialLink:hover .arrowIcon {
-  color: var(--color-fg);
-  transform: translate(1px, -1px);
+@media (hover: hover) {
+  .socialLink:hover {
+    border-color: var(--color-fg);
+    box-shadow: var(--shadow-hover);
+    color: var(--color-fg);
+  }
+
+  .socialLink:hover .socialIconWrapper {
+    color: var(--color-fg);
+  }
+
+  .socialLink:hover .arrowIcon {
+    color: var(--color-fg);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .socialLink:hover {
+    transform: var(--lift-sm);
+  }
+
+  .socialLink:hover .arrowIcon {
+    transform: translate(1px, -1px);
+  }
 }

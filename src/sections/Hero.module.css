@@ -79,17 +79,22 @@
   border: 1px solid var(--color-fg);
 }
 
-.primaryCta:hover {
+.primaryCta:hover,
+.primaryCta:focus-visible {
+  color: var(--color-bg);
+}
+
+.primaryCta:focus-visible {
   background-color: var(--color-text-muted);
   border-color: var(--color-text-muted);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-  /* Using the token accent could also work, but black-to-gray is very premium */
 }
 
 .primaryCta:active {
-  transform: translateY(0);
+  transform: none;
   box-shadow: none;
+  background-color: var(--color-text-muted);
+  border-color: var(--color-text-muted);
+  color: var(--color-bg);
 }
 
 .secondaryCta {
@@ -98,17 +103,42 @@
   border: 1px solid var(--color-border);
 }
 
-.secondaryCta:hover {
+.secondaryCta:hover,
+.secondaryCta:focus-visible {
+  color: var(--color-fg);
+}
+
+.secondaryCta:focus-visible {
   background-color: rgb(240 240 240);
   border-color: rgb(210 210 210);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
 .secondaryCta:active {
-  transform: translateY(0);
+  transform: none;
   box-shadow: none;
   background-color: rgb(230 230 230);
+  color: var(--color-fg);
+}
+
+@media (hover: hover) {
+  .primaryCta:hover {
+    background-color: var(--color-text-muted);
+    border-color: var(--color-text-muted);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .secondaryCta:hover {
+    background-color: rgb(240 240 240);
+    border-color: rgb(210 210 210);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .primaryCta:hover,
+  .secondaryCta:hover {
+    transform: var(--lift-sm);
+  }
 }
 
 /* Responsive Adjustments */

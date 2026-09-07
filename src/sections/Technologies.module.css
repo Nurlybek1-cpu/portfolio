@@ -96,14 +96,8 @@
   font-weight: 500;
   color: var(--color-fg);
   cursor: default;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   user-select: none;
-}
-
-.techItem:hover {
-  border-color: var(--color-fg);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
 .dot {
@@ -112,13 +106,19 @@
   border-radius: 50%;
   background-color: var(--color-text-muted);
   opacity: 0.45;
-  transition: background-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+  transition: background-color var(--transition-fast), opacity var(--transition-fast);
 }
 
-.techItem:hover .dot {
-  background-color: var(--color-accent);
-  opacity: 1;
-  transform: scale(1.2);
+@media (hover: hover) {
+  .techItem:hover {
+    border-color: var(--color-fg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .techItem:hover .dot {
+    background-color: var(--color-accent);
+    opacity: 1;
+  }
 }
 
 .techName {

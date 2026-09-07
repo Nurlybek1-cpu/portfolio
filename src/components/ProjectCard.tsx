@@ -39,12 +39,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className={styles.links}>
           {project.githubUrl && (
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
-              View Source &rarr;
+              View Source <span className={styles.linkArrow} aria-hidden="true">&rarr;</span>
             </a>
           )}
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
-              Live Demo &rarr;
+              Live Demo <span className={styles.linkArrow} aria-hidden="true">&rarr;</span>
             </a>
           )}
         </div>

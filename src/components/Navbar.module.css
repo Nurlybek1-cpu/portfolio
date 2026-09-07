@@ -36,9 +36,20 @@
   transition: opacity var(--transition-fast);
 }
 
-.logo:hover {
-  opacity: 0.7;
-  color: var(--color-fg); /* Override global anchor hover color */
+.logo:focus-visible {
+  color: var(--color-fg);
+}
+
+.logo:active {
+  opacity: 0.6;
+  color: var(--color-fg);
+}
+
+@media (hover: hover) {
+  .logo:hover {
+    opacity: 0.7;
+    color: var(--color-fg);
+  }
 }
 
 .nav {
@@ -58,7 +69,7 @@
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 500;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
   position: relative;
   padding-bottom: 2px;
 }
@@ -77,12 +88,26 @@
   transition: transform var(--transition-fast);
 }
 
-.navLink:hover {
+.navLink:focus-visible {
   color: var(--color-fg);
 }
 
-.navLink:hover::after {
+.navLink:focus-visible::after {
   transform: scaleX(1);
+}
+
+.navLink:active {
+  opacity: 0.7;
+}
+
+@media (hover: hover) {
+  .navLink:hover {
+    color: var(--color-fg);
+  }
+
+  .navLink:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .mobileMenuBtn {
@@ -96,12 +121,14 @@
   transition: background-color var(--transition-fast);
 }
 
-.mobileMenuBtn:hover {
-  background-color: var(--color-border);
-}
-
 .mobileMenuBtn:active {
   background-color: #d4d4d4;
+}
+
+@media (hover: hover) {
+  .mobileMenuBtn:hover {
+    background-color: var(--color-border);
+  }
 }
 
 /* Responsive Mobile Navigation */
