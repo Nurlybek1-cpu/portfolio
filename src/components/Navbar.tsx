@@ -1,8 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScrolled = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    updateScrolled();
+    window.addEventListener('scroll', updateScrolled, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrolled);
+  }, []);
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -13,7 +24,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
       <div className={styles.container}>
         <a href="#" className={styles.logo} onClick={closeMenu}>
           TN.

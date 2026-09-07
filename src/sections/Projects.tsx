@@ -4,7 +4,7 @@ import ProjectCard from '../components/ProjectCard';
 
 export default function Projects() {
   return (
-    <section id="projects" className={styles.projects}>
+    <section id="projects" className={styles.projects} data-reveal>
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Selected Projects</h2>

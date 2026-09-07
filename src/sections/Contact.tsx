@@ -16,7 +16,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className={styles.contact}>
+    <section id="contact" className={styles.contact} data-reveal>
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.titleColumn}>

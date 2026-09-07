@@ -6,8 +6,11 @@ import Projects from './sections/Projects';
 import Technologies from './sections/Technologies';
 import Now from './sections/Now';
 import Contact from './sections/Contact';
+import { useRevealOnScroll } from './hooks/useRevealOnScroll';
 
 export default function App() {
+  useRevealOnScroll();
+
   return (
     <>
       <Navbar />

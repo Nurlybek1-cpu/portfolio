@@ -2,7 +2,7 @@ import styles from './About.module.css';
 
 export default function About() {
   return (
-    <section id="about" className={styles.about}>
+    <section id="about" className={styles.about} data-reveal>
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.titleColumn}>

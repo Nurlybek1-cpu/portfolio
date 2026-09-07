@@ -2,7 +2,7 @@ import styles from './Now.module.css';
 
 export default function Now() {
   return (
-    <section id="now" className={styles.now}>
+    <section id="now" className={styles.now} data-reveal>
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.titleColumn}>

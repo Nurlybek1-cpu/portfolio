@@ -4,7 +4,7 @@ import type { TechnologyGroup } from '../data/technologies';
 
 export default function Technologies() {
   return (
-    <section id="technologies" className={styles.technologies}>
+    <section id="technologies" className={styles.technologies} data-reveal>
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.titleColumn}>
