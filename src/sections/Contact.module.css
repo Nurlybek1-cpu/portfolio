@@ -124,6 +124,11 @@
   color: var(--color-fg);
 }
 
+.actionBtn:active {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
 .copiedBtn {
   border-color: #16a34a;
   color: #16a34a;
@@ -139,6 +144,10 @@
   background-color: #333333;
   border-color: #333333;
   color: var(--color-bg);
+}
+
+.primaryBtn:active {
+  background-color: #444444;
 }
 
 /* ── Social Links ── */
@@ -162,9 +171,14 @@
 
 .socialLink:hover {
   border-color: var(--color-fg);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
   color: var(--color-fg);
+}
+
+.socialLink:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .socialIconWrapper {
@@ -212,5 +226,5 @@
 
 .socialLink:hover .arrowIcon {
   color: var(--color-fg);
-  transform: translate(2px, -2px);
+  transform: translate(1px, -1px);
 }

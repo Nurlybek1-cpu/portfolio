@@ -102,7 +102,7 @@
 
 .techItem:hover {
   border-color: var(--color-fg);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
 
