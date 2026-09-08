@@ -53,6 +53,12 @@
   gap: var(--space-8);
 }
 
+.groups > [data-reveal]:nth-child(1) { --reveal-delay: 0ms; }
+.groups > [data-reveal]:nth-child(2) { --reveal-delay: calc(var(--reveal-stagger) * 1); }
+.groups > [data-reveal]:nth-child(3) { --reveal-delay: calc(var(--reveal-stagger) * 2); }
+.groups > [data-reveal]:nth-child(4) { --reveal-delay: calc(var(--reveal-stagger) * 3); }
+.groups > [data-reveal]:nth-child(5) { --reveal-delay: calc(var(--reveal-stagger) * 4); }
+
 .group {
   display: flex;
   flex-direction: column;

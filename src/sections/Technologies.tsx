@@ -4,21 +4,21 @@ import type { TechnologyGroup } from '../data/technologies';
 
 export default function Technologies() {
   return (
-    <section id="technologies" className={styles.technologies} data-reveal>
+    <section id="technologies" className={styles.technologies}>
       <div className={styles.container}>
         <div className={styles.grid}>
-          <div className={styles.titleColumn}>
+          <div className={styles.titleColumn} data-reveal>
             <h2 className={styles.title}>Technologies</h2>
           </div>
 
           <div className={styles.contentColumn}>
-            <p className={styles.intro}>
+            <p className={styles.intro} data-reveal>
               A working toolkit of languages, frameworks, and developer tools I work with to build clean, maintainable software. Grouped by domain.
             </p>
 
             <div className={styles.groups}>
               {technologyGroups.map((group: TechnologyGroup) => (
-                <div key={group.category} className={styles.group}>
+                <div key={group.category} className={styles.group} data-reveal>
                   <h3 className={styles.categoryTitle}>{group.category}</h3>
                   <ul className={styles.techList}>
                     {group.items.map((tech) => (

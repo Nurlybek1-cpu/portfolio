@@ -2,6 +2,11 @@ import { useEffect } from 'react';
 
 const REVEAL_SELECTOR = '[data-reveal]';
 const REVEALED_CLASS = 'is-revealed';
+const FALLBACK_MS = 4000;
+
+function revealElement(el: Element) {
+  el.classList.add(REVEALED_CLASS);
+}
 
 /**
  * Observes all [data-reveal] elements with a single IntersectionObserver.
@@ -16,7 +21,7 @@ export function useRevealOnScroll() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      elements.forEach((el) => el.classList.add(REVEALED_CLASS));
+      elements.forEach(revealElement);
       return;
     }
 
@@ -24,7 +29,7 @@ export function useRevealOnScroll() {
       (entries, obs) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          entry.target.classList.add(REVEALED_CLASS);
+          revealElement(entry.target);
           obs.unobserve(entry.target);
         }
       },
@@ -36,6 +41,16 @@ export function useRevealOnScroll() {
 
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    const fallbackId = window.setTimeout(() => {
+      elements.forEach((el) => {
+        revealElement(el);
+        observer.unobserve(el);
+      });
+    }, FALLBACK_MS);
+
+    return () => {
+      window.clearTimeout(fallbackId);
+      observer.disconnect();
+    };
   }, []);
 }

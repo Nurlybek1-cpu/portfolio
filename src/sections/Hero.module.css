@@ -20,6 +20,7 @@
   border: 1px solid var(--color-border);
   border-radius: 9999px;
   margin-bottom: var(--space-6);
+  animation: hero-enter var(--reveal-duration) var(--reveal-ease) backwards;
 }
 
 .statusDot {
@@ -47,19 +48,45 @@
   font-size: var(--text-4xl);
   margin-bottom: var(--space-4);
   /* A subtle visual touch: slight letter spacing on a large bold font */
-  letter-spacing: -0.03em; 
+  letter-spacing: -0.03em;
+  animation: hero-enter var(--reveal-duration) var(--reveal-ease) backwards;
+  animation-delay: var(--reveal-stagger);
 }
 
 .description {
   font-size: var(--text-xl);
   max-width: 580px;
   margin-bottom: var(--space-8);
+  animation: hero-enter var(--reveal-duration) var(--reveal-ease) backwards;
+  animation-delay: calc(var(--reveal-stagger) * 2);
 }
 
 .actions {
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap; /* Ensures buttons stack on very small screens */
+  animation: hero-enter var(--reveal-duration) var(--reveal-ease) backwards;
+  animation-delay: calc(var(--reveal-stagger) * 3);
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusBadge,
+  .title,
+  .description,
+  .actions {
+    animation: none;
+  }
 }
 
 .primaryCta, .secondaryCta {
