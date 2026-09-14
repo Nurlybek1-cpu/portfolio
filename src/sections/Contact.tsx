@@ -3,7 +3,7 @@ import styles from './Contact.module.css';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const email = 'tokbosyn.nurlybek@gmail.com'; // Placeholder email
+  const email = 'tokbosynnurlybek@gmail.com';
 
   const handleCopyEmail = async () => {
     try {
@@ -25,7 +25,7 @@ export default function Contact() {
 
           <div className={styles.contentColumn}>
             <p className={styles.lead}>
-              I am currently open to software engineering opportunities, collaborative projects, or general tech discussions.
+              I am currently open to developer opportunities, collaborative projects, or general tech discussions.
             </p>
             <p className={styles.description}>
               Feel free to reach out directly via email or connect through my professional profiles.
@@ -79,7 +79,7 @@ export default function Contact() {
 
             <div className={styles.socialGrid}>
               <a
-                href="https://github.com/tokbosyn"
+                href="https://github.com/Nurlybek1-cpu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
@@ -92,7 +92,7 @@ export default function Contact() {
                 </div>
                 <div className={styles.socialText}>
                   <span className={styles.socialLabel}>GitHub</span>
-                  <span className={styles.socialUsername}>@tokbosyn</span>
+                  <span className={styles.socialUsername}>@Nurlybek1-cpu</span>
                 </div>
                 <svg className={styles.arrowIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="7" y1="17" x2="17" y2="7" />
@@ -101,7 +101,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://linkedin.com/in/tokbosyn"
+                href="https://linkedin.com/in/nurlybek-tokbosyn"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
@@ -114,7 +114,52 @@ export default function Contact() {
                 </div>
                 <div className={styles.socialText}>
                   <span className={styles.socialLabel}>LinkedIn</span>
-                  <span className={styles.socialUsername}>in/tokbosyn</span>
+                  <span className={styles.socialUsername}>in/nurlybek-tokbosyn</span>
+                </div>
+                <svg className={styles.arrowIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+
+              <a
+                href="https://t.me/Nurly_k"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="Telegram profile (opens in a new tab)"
+              >
+                <div className={styles.socialIconWrapper}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z" />
+                  </svg>
+                </div>
+                <div className={styles.socialText}>
+                  <span className={styles.socialLabel}>Telegram</span>
+                  <span className={styles.socialUsername}>@Nurly_k</span>
+                </div>
+                <svg className={styles.arrowIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+
+              <a
+                href="https://almaty.hh.kz/resume/2e67dc62ff0f8c5a4e0039ed1f483538376f35"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="HeadHunter resume (opens in a new tab)"
+              >
+                <div className={styles.socialIconWrapper}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                  </svg>
+                </div>
+                <div className={styles.socialText}>
+                  <span className={styles.socialLabel}>HeadHunter</span>
+                  <span className={styles.socialUsername}>hh.kz/resume</span>
                 </div>
                 <svg className={styles.arrowIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="7" y1="17" x2="17" y2="7" />

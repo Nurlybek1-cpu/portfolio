@@ -10,17 +10,14 @@ export default function About() {
           </div>
           <div className={styles.contentColumn}>
             <p className={styles.lead}>
-              I'm a recent Computer Science graduate transitioning from academic theory to real-world software engineering.
+              I'm a Computer Science graduate from SDU University interested in building practical software and learning how things work under the hood.
             </p>
             <div className={styles.prose}>
               <p>
-                My interest in software development stems from a desire to build tools that are both functional and well-crafted. While university taught me the fundamentals of algorithms and system architecture, I am currently focused on mastering modern web technologies.
+                I work with Java, React, TypeScript, and modern web technologies, and I'm currently focused on growing as a full-stack developer, with a particular interest in Java backend development.
               </p>
               <p>
-                Presently, I am deep-diving into React, TypeScript, and modern CSS. My approach to learning is highly practical: I prefer to build small, focused projects, break them, understand why they broke, and build them better the next time.
-              </p>
-              <p>
-                Ultimately, I want to become a developer who bridges the gap between strong engineering and excellent product design. My immediate goal is to join a collaborative engineering team where I can contribute to meaningful products while continuing to rapidly grow my technical skills.
+                I enjoy turning ideas into working projects, solving problems, and continuously improving my skills.
               </p>
             </div>
           </div>

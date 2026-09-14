@@ -6,15 +6,15 @@ export interface TechnologyGroup {
 export const technologyGroups: TechnologyGroup[] = [
   {
     category: 'Languages',
-    items: ['TypeScript', 'JavaScript', 'Python', 'Go', 'SQL', 'HTML5', 'CSS3']
-  },
-  {
-    category: 'Backend',
-    items: ['Node.js', 'Express', 'FastAPI', 'REST APIs', 'GraphQL']
+    items: ['Java', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SQL']
   },
   {
     category: 'Frontend',
-    items: ['React', 'Next.js', 'Vite', 'CSS Modules', 'Tailwind CSS']
+    items: ['React', 'TypeScript', 'Vite', 'CSS Modules']
+  },
+  {
+    category: 'Backend',
+    items: ['Java', 'REST APIs', 'Node.js']
   },
   {
     category: 'Database',
