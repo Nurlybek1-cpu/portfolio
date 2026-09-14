@@ -34,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               <img 
                 key={index}
                 src={url} 
-                alt={`${project.title} screenshot ${index + 1}`} 
+                alt={`${project.title} application interface ${index + 1}`} 
                 className={styles.sliderImage} 
               />
             ))}
@@ -63,7 +63,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       ) : (
         <div className={styles.imageContainer}>
           {project.imageUrl ? (
-            <img src={project.imageUrl} alt={`${project.title} screenshot`} className={styles.image} />
+            <img src={project.imageUrl} alt={`${project.title} application interface`} className={styles.image} />
           ) : (
             <div className={styles.imagePlaceholder}>
               <span>No Image Provided</span>

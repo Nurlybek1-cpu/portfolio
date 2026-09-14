@@ -150,6 +150,30 @@ code, pre {
   border-radius: var(--radius-sm);
 }
 
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: var(--space-4);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  padding: var(--space-2) var(--space-4);
+  z-index: 1000;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  opacity: 0;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+  opacity: 1;
+}
+
+.skip-link:hover {
+  color: #ffffff;
+}
+
 /* Section entrance reveals */
 [data-reveal] {
   --reveal-delay: 0ms;
