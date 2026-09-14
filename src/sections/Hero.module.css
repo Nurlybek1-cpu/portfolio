@@ -179,14 +179,4 @@
     min-height: max(100svh, 500px); 
     padding-top: calc(var(--header-height) + var(--space-4));
   }
-  
-  .actions {
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px; /* Prevents button spanning the entire screen on tablets */
-  }
-
-  .primaryCta, .secondaryCta {
-    width: 100%;
-  }
 }
