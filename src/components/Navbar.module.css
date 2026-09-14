@@ -18,12 +18,13 @@
 }
 
 .container {
-  max-width: 800px; /* Same width as Hero container to align nicely */
+  max-width: 800px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-4);
+  padding: var(--space-3) var(--space-4);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: var(--header-height);
 }
 
 .logo {
@@ -34,6 +35,10 @@
   font-family: var(--font-mono);
   letter-spacing: -0.02em;
   transition: opacity var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-1);
 }
 
 .logo:focus-visible {
@@ -71,14 +76,15 @@
   font-weight: 500;
   transition: color var(--transition-fast), opacity var(--transition-fast);
   position: relative;
-  padding-bottom: 2px;
+  padding: var(--space-1) 0;
+  display: inline-block;
 }
 
 /* Underline-slide hover effect */
 .navLink::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 1.5px;
@@ -116,13 +122,17 @@
   border: none;
   color: var(--color-fg);
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
   padding: var(--space-2);
   border-radius: var(--radius-sm);
   transition: background-color var(--transition-fast);
+  align-items: center;
+  justify-content: center;
 }
 
 .mobileMenuBtn:active {
-  background-color: #d4d4d4;
+  background-color: var(--color-border);
 }
 
 @media (hover: hover) {
@@ -132,11 +142,9 @@
 }
 
 /* Responsive Mobile Navigation */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .mobileMenuBtn {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   .nav {
@@ -145,7 +153,9 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--color-bg);
+    background-color: rgba(250, 250, 250, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-4);
     box-shadow: var(--shadow-md);
@@ -157,12 +167,19 @@
   
   .navList {
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-2);
   }
   
   .navLink {
-    display: block;
-    padding: var(--space-2) 0;
+    display: flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-2);
     font-size: var(--text-base);
+    min-height: 44px;
+    border-radius: var(--radius-sm);
+  }
+
+  .navLink::after {
+    display: none;
   }
 }

@@ -68,6 +68,46 @@
   font-size: var(--text-sm);
 }
 
+/* =========================================
+   ADDED FOR NOMEAGLE IMAGE CAROUSEL
+   ========================================= */
+.carousel {
+  flex: 1; /* Shares space evenly on desktop just like imageContainer */
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: var(--space-2); /* Prevents scrollbar overlapping */
+  min-height: 240px;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.carouselImage {
+  flex: 0 0 85%; /* 85% width lets the next image peek out */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  scroll-snap-align: center;
+  border: 1px solid var(--color-border);
+  background-color: rgb(240, 240, 240);
+}
+/* ========================================= */
+
 .content {
   flex: 1.5;
   display: flex;
@@ -196,3 +236,100 @@
     transform: translateX(3px);
   }
 }
+
+/* =========================================
+   IMAGE SLIDER STYLES
+   ========================================= */
+.sliderContainer {
+  flex: 1;
+  width: 100%; /* Ensures it doesn't shrink horizontally */
+  position: relative;
+  aspect-ratio: 16 / 9; /* Forces a perfect landscape rectangle */
+  align-self: center; /* Stops the container from stretching to text height */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: rgb(240, 240, 240);
+  display: flex;
+}
+
+
+/* The track holds all images in a row and slides left/right */
+.sliderTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sliderImage {
+  flex: 0 0 100%; 
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed from 'cover' to 'contain' */
+  background-color: rgb(240, 240, 240); /* Matches the container background for a seamless look */
+}
+
+/* Navigation Buttons */
+.sliderBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0; /* Hidden by default */
+  transition: opacity var(--transition-fast), background var(--transition-fast);
+  z-index: 2;
+  font-size: 14px;
+}
+
+/* Show buttons on hover */
+.sliderContainer:hover .sliderBtn {
+  opacity: 1;
+}
+
+.sliderBtn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prevBtn { left: 12px; }
+.nextBtn { right: 12px; }
+
+/* Navigation Dots */
+.sliderDots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.dotActive {
+  background: #ffffff;
+  transform: scale(1.2);
+}
+/* ========================================= */

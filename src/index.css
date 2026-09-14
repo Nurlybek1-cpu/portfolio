@@ -8,7 +8,6 @@
   --color-accent-hover: #1d4ed8;
 
   /* Typography */
-  /* 'Inter' as primary if imported, falling back to clean system fonts */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
@@ -16,10 +15,10 @@
   --text-sm: 0.875rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
+  --text-xl: clamp(1.125rem, 1.5vw + 0.875rem, 1.25rem);
+  --text-2xl: clamp(1.25rem, 2vw + 0.875rem, 1.5rem);
+  --text-3xl: clamp(1.5rem, 2.5vw + 1rem, 1.875rem);
+  --text-4xl: clamp(1.75rem, 3.5vw + 1rem, 2.25rem);
 
   /* Spacing (Base 4 system) */
   --space-1: 0.25rem;
@@ -32,12 +31,10 @@
   --space-16: 4rem;
 
   /* Borders & Shadows */
-  /* Subtle, not overly rounded */
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
   
-  /* Very soft shadows to avoid heavy, generic 3D look */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
   --shadow-hover: 0 4px 10px -2px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.04);
@@ -48,13 +45,13 @@
   --lift-sm: translateY(-1px);
   --lift-md: translateY(-2px);
 
-  /* Scroll / entrance reveals (shared by sections, stagger, and hero) */
+  /* Scroll / entrance reveals */
   --reveal-duration: 480ms;
   --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --reveal-distance: 10px;
   --reveal-stagger: 55ms;
 
-  /* Sticky header offset for in-page anchors and sticky section titles */
+  /* Sticky header offset for in-page anchors */
   --header-height: 4rem;
   --scroll-padding: calc(var(--header-height) + 0.5rem);
 }
@@ -65,9 +62,17 @@
   box-sizing: border-box;
 }
 
+/* Global Media Reset to Prevent Horizontal Overflow */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--scroll-padding);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -77,18 +82,28 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+/* Touch responsiveness optimization */
+a, button, input, textarea, select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Base Typography Enforcements */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.025em; /* Premium tight tracking for headers */
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   color: var(--color-fg);
+  overflow-wrap: break-word;
 }
 
 p {
   color: var(--color-text-muted);
+  overflow-wrap: break-word;
 }
 
 a {
@@ -110,13 +125,21 @@ a:active {
 code, pre {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
+  overflow-x: auto;
+  max-width: 100%;
 }
 
-/* A utility class for the main container to enforce generous whitespace */
+/* Utility class for main container */
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: var(--space-8) var(--space-4);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: var(--space-6) var(--space-4);
+  }
 }
 
 /* Accessibility: Visible focus state for keyboard navigation */
@@ -126,7 +149,7 @@ code, pre {
   border-radius: var(--radius-sm);
 }
 
-/* Section entrance: one subtle fade/translate, played once via Intersection Observer */
+/* Section entrance reveals */
 [data-reveal] {
   --reveal-delay: 0ms;
   opacity: 0;
@@ -163,7 +186,6 @@ code, pre {
     transform: none;
   }
 
-  /* Keep hover color/underline; skip movement */
   *:hover,
   *:hover * {
     transform: none !important;

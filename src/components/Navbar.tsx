@@ -15,8 +15,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', updateScrolled);
   }, []);
 
+  // Close menu on Escape key press for keyboard accessibility
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileMenuOpen]);
+
   const toggleMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const closeMenu = () => {
@@ -26,7 +38,7 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
       <div className={styles.container}>
-        <a href="#" className={styles.logo} onClick={closeMenu}>
+        <a href="#" className={styles.logo} onClick={closeMenu} aria-label="TN. - Home">
           TN.
         </a>
         
@@ -34,6 +46,7 @@ export default function Navbar() {
           className={styles.mobileMenuBtn} 
           onClick={toggleMenu}
           aria-expanded={isMobileMenuOpen}
+          aria-controls="primary-navigation"
           aria-label="Toggle navigation menu"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -45,7 +58,10 @@ export default function Navbar() {
           </svg>
         </button>
 
-        <nav className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}>
+        <nav 
+          id="primary-navigation"
+          className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ''}`}
+        >
           <ul className={styles.navList}>
             <li><a href="#about" onClick={closeMenu} className={styles.navLink}>About</a></li>
             <li><a href="#projects" onClick={closeMenu} className={styles.navLink}>Projects</a></li>

@@ -14,8 +14,8 @@
   gap: var(--space-6);
 }
 
-/* Two-column layout on larger screens */
-@media (min-width: 600px) {
+/* Two-column layout on tablet and desktop screens */
+@media (min-width: 640px) {
   .grid {
     grid-template-columns: 1fr 2.5fr;
     gap: var(--space-12);
@@ -34,7 +34,7 @@
 }
 
 /* On desktop, the title sticks to the top as you scroll past the text */
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .title {
     position: sticky;
     top: calc(var(--header-height) + var(--space-6)); /* Sit below the sticky navbar */
@@ -46,7 +46,7 @@
   color: var(--color-fg);
   font-weight: 500;
   line-height: 1.5;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   letter-spacing: -0.01em;
 }
 
@@ -59,4 +59,19 @@
 
 .prose p:last-child {
   margin-bottom: 0;
+}
+
+/* Responsive Mobile Adjustments */
+@media (max-width: 640px) {
+  .about {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .lead {
+    margin-bottom: var(--space-4);
+  }
+
+  .prose p {
+    margin-bottom: var(--space-4);
+  }
 }

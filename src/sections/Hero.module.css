@@ -1,8 +1,13 @@
 .hero {
-  min-height: 100vh;
+  min-height: max(100vh, 600px);
+  /* Fallback for browsers supporting small viewport height */
+  min-height: max(100svh, 600px); 
   display: flex;
   align-items: center;
   padding: var(--space-8) var(--space-4);
+  /* Ensure hero doesn't disappear behind the sticky navbar */
+  margin-top: calc(var(--header-height) * -1);
+  padding-top: calc(var(--header-height) + var(--space-8));
 }
 
 .container {
@@ -47,7 +52,6 @@
 .title {
   font-size: var(--text-4xl);
   margin-bottom: var(--space-4);
-  /* A subtle visual touch: slight letter spacing on a large bold font */
   letter-spacing: -0.03em;
   animation: hero-enter var(--reveal-duration) var(--reveal-ease) backwards;
   animation-delay: var(--reveal-stagger);
@@ -64,7 +68,7 @@
 .actions {
   display: flex;
   gap: var(--space-4);
-  flex-wrap: wrap; /* Ensures buttons stack on very small screens */
+  flex-wrap: wrap;
   animation: hero-enter var(--reveal-duration) var(--reveal-ease) backwards;
   animation-delay: calc(var(--reveal-stagger) * 3);
 }
@@ -97,6 +101,7 @@
   border-radius: var(--radius-md);
   font-weight: 500;
   font-size: var(--text-base);
+  min-height: 48px; /* Comfortable touch target */
   transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -169,22 +174,19 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .hero {
-    min-height: auto;
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-16);
+    min-height: max(100svh, 500px); 
+    padding-top: calc(var(--header-height) + var(--space-4));
+  }
+  
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* Prevents button spanning the entire screen on tablets */
   }
 
-  .title {
-    font-size: var(--text-3xl);
-  }
-  
-  .description {
-    font-size: var(--text-lg);
-  }
-  
   .primaryCta, .secondaryCta {
-    width: 100%; /* Full width buttons for easy tapping on mobile */
+    width: 100%;
   }
 }
