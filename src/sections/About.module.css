@@ -1,5 +1,9 @@
+/* =========================================
+   Mobile-First Base Styles
+========================================= */
+
 .about {
-  padding: var(--space-16) var(--space-4);
+  padding: var(--space-10) var(--space-4);
   background-color: var(--color-bg);
 }
 
@@ -11,15 +15,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
-}
-
-/* Two-column layout on tablet and desktop screens */
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr 2.5fr;
-    gap: var(--space-12);
-  }
+  gap: var(--space-8); /* Slightly larger base gap so title visually separates from body on mobile */
 }
 
 .titleColumn {
@@ -33,25 +29,17 @@
   letter-spacing: -0.02em;
 }
 
-/* On desktop, the title sticks to the top as you scroll past the text */
-@media (min-width: 640px) {
-  .title {
-    position: sticky;
-    top: calc(var(--header-height) + var(--space-6)); /* Sit below the sticky navbar */
-  }
-}
-
 .lead {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg); /* Slightly smaller on mobile for better line lengths */
   color: var(--color-fg);
   font-weight: 500;
   line-height: 1.5;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   letter-spacing: -0.01em;
 }
 
 .prose p {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   font-size: var(--text-base);
   color: var(--color-text-muted);
   line-height: 1.7;
@@ -61,17 +49,32 @@
   margin-bottom: 0;
 }
 
-/* Responsive Mobile Adjustments */
-@media (max-width: 640px) {
+/* =========================================
+   Tablet & Desktop Layout (>= 768px)
+========================================= */
+
+@media (min-width: 768px) {
   .about {
-    padding: var(--space-10) var(--space-4);
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .grid {
+    grid-template-columns: 1fr 2.5fr;
+    gap: var(--space-12);
+  }
+
+  /* Sticky title only kicks in when the layout is side-by-side */
+  .title {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6)); 
   }
 
   .lead {
-    margin-bottom: var(--space-4);
+    font-size: var(--text-xl); /* Scales back up to intended desktop size */
+    margin-bottom: var(--space-6);
   }
 
   .prose p {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
   }
 }
