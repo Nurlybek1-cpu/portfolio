@@ -37,13 +37,20 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 'placeholder-2',
-    title: 'Placeholder Project Beta',
-    problem: 'A secondary placeholder illustrating a different kind of problem statement.',
-    description: 'A more concise description for a secondary project. Case study details will populate here once actual projects are provided.',
-    technologies: ['Python', 'PostgreSQL', 'Docker'],
-    status: 'In Progress',
-    githubUrl: 'https://github.com',
+    id: 'smart-parking',
+    title: 'Smart Parking System',
+    problem: 'Inefficient parking usage in large cities, where drivers spend significant time searching for available parking spaces and often park incorrectly. This leads to traffic congestion, time loss, and increased CO₂ emissions.',
+    description: 'Smart Parking System is an educational project and MVP developed as part of a semester assessment and final project defense. The system helps users quickly find, reserve, and manage parking spots. Target users include drivers in urban areas, students and employees, residents of residential complexes, and city parking operators.',
+    technologies: ['React', 'FastAPI', 'Python', 'OpenCV'],
+    status: 'Completed',
+    githubUrl: 'https://github.com/supertankerlol/Parking-system.git',
+    imageUrls: [
+      `${import.meta.env.BASE_URL}parking/a.jpg`,
+      `${import.meta.env.BASE_URL}parking/b.jpg`,
+      `${import.meta.env.BASE_URL}parking/c.jpg`,
+      `${import.meta.env.BASE_URL}parking/d.jpg`,
+      `${import.meta.env.BASE_URL}parking/e.jpg`
+    ],
     featured: false,
   }
 ];
